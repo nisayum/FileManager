@@ -69,3 +69,48 @@ void main()
 		printf(" This file is can not be deleted %s\n\n",fname);
 	}
 }*/
+
+
+/// COPING A TEXT FILE TO ANOTHER TEXT FILE
+/*
+#include <stdio.h>
+#include <stdlib.h>
+
+void main(){
+	FILE *fptr1, *fptr2;
+	char ch, fname1[20], fname2[20];
+	
+	printf("\n Program to copy a file in another name: \n");
+	printf("Enter the source file name: ");
+	scanf("%s", fname1);
+	
+	fptr1 = fopen(fname1, "r");
+	if (fptr1 == NULL){
+		printf("File does not found or an error occured when opening!!");
+		exit(1);
+	}
+	printf("\n Enter the new file name: ");
+	scanf("%s", fname2);
+	fptr2 = fopen(fname2, "w");
+	if( fptr2 == NULL){
+		printf("File does not found or an error occured when opening!!");
+		fclose(fptr1);
+		exit(2);
+		
+	}
+	while(1){
+		ch = fgetc(fptr1);
+		
+		if(ch == EOF){
+			break;
+		}
+		else{
+			fputc(ch, fptr2);
+		}
+	}
+	printf("The file %s copied to file %s succesfully.\n", fname1, fname2);
+	fclose(fptr1);
+	fclose(fptr2);
+	
+}*/
+
