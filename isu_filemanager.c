@@ -46,6 +46,35 @@ int main(int argc, char* argv[]){
     else if strcmp(argv[1], "remove") == 0 {
         remove(argv[2]);
     }
+
+    else if strcmp(argv[1], "rename") == 0 {
+        rename(argv[2], argv[3]);
+    }
+
+    else if strcmp(argv[1], "copy") == 0 {
+        char ch;
+        FILE *dest;
+        fp = fopen(argv[2], "r");
+
+        dest = fopen(argv[3], "w");
+
+        while (ch = fgetc(fp)) != EOF
+            fputc(ch, dest);
+    }
+
+    else if strcmp(argv[1], "move") == 0 {
+        char ch;
+        FILE *dest;
+        fp = fopen(argv[2], "r");
+
+        dest = fopen(argv[3], "w");
+
+        while (ch = fgetc(fp)) != EOF
+            fputc(ch, dest);
+        fclose(fp);
+        fp = fopen(argv[2], "w");
+        remove(argv[2]);
+    }
 }
 
 /* 
