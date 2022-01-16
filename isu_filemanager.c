@@ -78,20 +78,20 @@ void main()
 
 void main(){
 	FILE *fptr1, *fptr2;
-	char ch, fname1[20], fname2[20];
+	char ch, fname1[1000], fname2[1000];
 	
 	printf("\n Program to copy a file in another name: \n");
 	printf("Enter the source file name: ");
 	scanf("%s", fname1);
 	
-	fptr1 = fopen(fname1, "r");
+	fptr1 = fopen(fname1, "rb");
 	if (fptr1 == NULL){
 		printf("File does not found or an error occured when opening!!");
 		exit(1);
 	}
 	printf("\n Enter the new file name: ");
 	scanf("%s", fname2);
-	fptr2 = fopen(fname2, "w");
+	fptr2 = fopen(fname2, "wb");
 	if( fptr2 == NULL){
 		printf("File does not found or an error occured when opening!!");
 		fclose(fptr1);
