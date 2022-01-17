@@ -80,13 +80,43 @@ int main(int argc, char* argv[]) {
         dest = fopen(argv[2], "a");
         for(int i = 0; i < strlen(ap); i++)
         {
-            
+            fputc(argv[3][i], dest);
         }
         
-        fclose(fp);
     }
-
+    
+    else if(strcmp(argv[1], "writeat") == 0) {
+        char *ap; 
+        ap = argv[4];
+        FILE *dest;
+    
+        dest = fopen(argv[2], "r+b");
+        fseek(dest, strtol(argv[3], NULL, 10), SEEK_SET);
+        for(int i = 0; i < strlen(ap); i++) 
+        {
+            fputc(argv[4][i], dest);
+        }    
    }
+
+   else if(strcmp(argv[1], "clear") == 0) {
+       fp = fopen(argv[2], "w");
+   }
+
+   else if(strcmp(argv[1], "display") == 0) {
+       char ch;
+       fp = fopen(argv[2], "r");
+       do {
+           /* Read single character from file */
+           ch = fgetc(fp);
+
+           /* Print character read on console */
+           putchar(ch);
+       } while(ch != EOF); /* Repeat this if last read character is not EOF */
+
+       /* Done with this file, close file to release resource */
+       fclose(fp);
+   }   
+}
 
 /* 
 #include <stdio.h>
