@@ -2,10 +2,12 @@
 	#include <stdlib.h>
 	#include <string.h>
 	#include <math.h>
+        #include <errno.h>
 	
 	int main(int argc, char* argv[]) {
 	    //if(strcmp(argv[1],"--help") == 0)
 	    FILE *fp;
+	    int errnum;
 	    if (fp == NULL) {
 	        printf("fopen failed!");
 	        exit(-1);
